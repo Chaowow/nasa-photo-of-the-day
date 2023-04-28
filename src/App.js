@@ -2,6 +2,8 @@ import React, { useState, useEffect }from "react";
 import "./App.css";
 import axios from "axios";
 import NasaPhoto from "./Components/NasaPhoto";
+import theme from "./theme";
+import { ThemeProvider } from "styled-components";
 
 function App() {
   const [data, setData] = useState();
@@ -18,9 +20,9 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <ThemeProvider className="App" theme={theme}>
       { data && <NasaPhoto photo={data}/> }
-    </div>
+    </ThemeProvider>
   );
 }
 
